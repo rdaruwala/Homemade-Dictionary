@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8121.20" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="E4y-8v-lqq">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8101.16"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Homemade Dictionary-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Homemade_Dictionary" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="l2c-GQ-r3E"/>
+                        <viewControllerLayoutGuide type="bottom" id="zFl-aH-aAe"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JAi-a7-lvg">
+                                <rect key="frame" x="20" y="249" width="560" height="30"/>
+                                <state key="normal" title="Submit Lookup">
+                                    <color key="titleColor" red="0.90183080810000005" green="0.052293471110000003" blue="0.1142513569" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="lookupSubmitAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kQh-hj-4do"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Word to lookup" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="U0M-Vd-C7z">
+                                <rect key="frame" x="20" y="192" width="560" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wgh-dp-HwM">
+                                <rect key="frame" x="20" y="468" width="560" height="30"/>
+                                <state key="normal" title="Enter new Definition">
+                                    <color key="titleColor" red="0.90183080810000005" green="0.052293471110000003" blue="0.1142513569" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="definitionSubmitAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="csP-Er-ngz"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="leadingMargin" secondItem="Wgh-dp-HwM" secondAttribute="leading" id="BSa-BC-yce"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="JAi-a7-lvg" secondAttribute="leading" id="Gd1-G4-5hq"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Wgh-dp-HwM" secondAttribute="trailing" id="XU2-N3-9Cl"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="U0M-Vd-C7z" secondAttribute="leading" id="lIg-JC-Ct3"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="JAi-a7-lvg" secondAttribute="trailing" id="npB-5K-xmV"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="U0M-Vd-C7z" secondAttribute="trailing" id="yMz-wx-GOq"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Homemade Dictionary" id="V4S-4V-5qw"/>
+                    <connections>
+                        <outlet property="lookupSubmitButton" destination="JAi-a7-lvg" id="3Jh-V5-DZc"/>
+                        <outlet property="lookupTextField" destination="U0M-Vd-C7z" id="zV7-0g-64p"/>
+                        <outlet property="newDefinitionSubmitButton" destination="Wgh-dp-HwM" id="aKu-HC-Fjv"/>
+                        <segue destination="Vzy-l4-pqr" kind="show" identifier="define" id="s82-Mu-1QN"/>
+                        <segue destination="i9W-G0-JYQ" kind="show" identifier="input" id="Qpf-Bd-zsX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1115" y="363"/>
+        </scene>
+        <!--Add New Definition-->
+        <scene sceneID="Umv-hU-Qfd">
+            <objects>
+                <viewController id="i9W-G0-JYQ" customClass="inputDefinitionViewController" customModule="Homemade_Dictionary" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="dBE-2J-dAw"/>
+                        <viewControllerLayoutGuide type="bottom" id="xsK-FI-j9i"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="0Q8-Jb-rFY">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y8k-Mt-oMw">
+                                <rect key="frame" x="20" y="492" width="560" height="30"/>
+                                <state key="normal" title="Submit">
+                                    <color key="titleColor" red="0.90183080810000005" green="0.052293471110000003" blue="0.1142513569" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="submitButton:" destination="i9W-G0-JYQ" eventType="touchUpInside" id="CdN-hS-NhR"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lcQ-1c-604">
+                                <rect key="frame" x="20" y="270" width="560" height="204"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Enter one definition per submission" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xMg-xg-j16">
+                                <rect key="frame" x="20" y="231" width="560" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.90767045449999995" green="0.90767045449999995" blue="0.90767045449999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Word to define" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2z7-Vn-pTu">
+                                <rect key="frame" x="20" y="132" width="560" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="leadingMargin" secondItem="Y8k-Mt-oMw" secondAttribute="leading" id="3PY-sj-53n"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="xMg-xg-j16" secondAttribute="leading" id="Lvc-qz-ui8"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="xMg-xg-j16" secondAttribute="trailing" id="REe-SD-Wab"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="lcQ-1c-604" secondAttribute="leading" id="WhY-oK-ngJ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="xMg-xg-j16" secondAttribute="trailing" id="d1B-Rk-BTY"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="lcQ-1c-604" secondAttribute="trailing" id="dYK-tJ-AX7"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="2z7-Vn-pTu" secondAttribute="leading" id="gO4-S4-yy2"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="2z7-Vn-pTu" secondAttribute="trailing" id="nF8-0h-M6N"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Y8k-Mt-oMw" secondAttribute="trailing" id="saz-ne-wZB"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Add New Definition" id="mEC-gt-U05"/>
+                    <connections>
+                        <outlet property="definitionTextField" destination="lcQ-1c-604" id="teB-8P-LCL"/>
+                        <outlet property="submitButton" destination="Y8k-Mt-oMw" id="guM-YA-ebb"/>
+                        <outlet property="wordTextField" destination="2z7-Vn-pTu" id="EJu-dJ-Y6N"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="e89-Cm-Rcd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1869" y="362"/>
+        </scene>
+        <!--View Definition-->
+        <scene sceneID="ysR-wH-Q4b">
+            <objects>
+                <viewController id="Vzy-l4-pqr" customClass="viewDefinitionViewController" customModule="Homemade_Dictionary" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="kf6-Sl-W16"/>
+                        <viewControllerLayoutGuide type="bottom" id="uzg-nu-T4p"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="GoU-7t-Uxs">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bNk-DT-tqg">
+                                <rect key="frame" x="20" y="132" width="560" height="265"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Word" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xgx-uS-uH2">
+                                <rect key="frame" x="20" y="83" width="560" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1me-uq-K5h">
+                                <rect key="frame" x="20" y="508" width="560" height="30"/>
+                                <state key="normal" title="Remove a Definition">
+                                    <color key="titleColor" red="0.90183080810000005" green="0.052293471110000003" blue="0.1142513569" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="bNk-DT-tqg" secondAttribute="trailing" id="8Mt-CO-WEw"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="xgx-uS-uH2" secondAttribute="leading" id="FiJ-Wy-ESE"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="bNk-DT-tqg" secondAttribute="leading" id="df1-q4-LoM"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="xgx-uS-uH2" secondAttribute="trailing" id="zNA-Gy-b4C"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="View Definition" id="3bX-BT-fd9"/>
+                    <connections>
+                        <outlet property="definitionDisplayBox" destination="bNk-DT-tqg" id="5yR-ko-xPq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WSW-XB-l6w" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1438" y="1108"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="LJv-OY-58b">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="E4y-8v-lqq" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="j3n-W8-eOm">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Fa9-It-tFR"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IFA-4K-b7N" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="224" y="1023.9999999999999"/>
+        </scene>
+    </scenes>
+</document>
