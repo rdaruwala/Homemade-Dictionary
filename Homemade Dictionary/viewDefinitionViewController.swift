@@ -22,7 +22,6 @@ class viewDefinitionViewController: UIViewController {
         
         definitionDisplayBox.editable = false
         let definitionArray:[String] = Dictionary[wordRecieved]!
-        
     }
 
     override func didReceiveMemoryWarning() {
