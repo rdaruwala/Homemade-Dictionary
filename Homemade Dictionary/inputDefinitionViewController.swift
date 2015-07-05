@@ -16,10 +16,13 @@ class inputDefinitionViewController: UIViewController {
     @IBOutlet weak var definitionTextField: UITextView!
     @IBOutlet weak var submitButton: UIButton!
     
-    var Dictionary = [String:[String]]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //Dictionary = NSEntityDescription.insertNewObjectForEntityForName("Info", inManagedObjectContext: self.managedObjectContext) as! Info
+        //var tempDictionary:[String:[String]] = Info.valueforKey(key: "dictionary") as? [String:[String]]
+        
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "backgroundimage.png")!)
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillShow:"), name:UIKeyboardWillShowNotification, object: nil);
@@ -38,9 +41,13 @@ class inputDefinitionViewController: UIViewController {
         wordTextField.text = wordTextField.text?.lowercaseString
         if(definitionTextField.text != nil && definitionTextField.text != ""){
             if(wordTextField.text != nil && wordTextField.text != ""){
-                loadDictionary()
+                let appDel:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+                let context:NSManagedObjectContext = appDel.managedObjectContext
+                let ent = NSEntityDescription.entityForName("Info", inManagedObjectContext: context)
+                let dic = Info(entity: ent!, insertIntoManagedObjectContext: context)
+
+                var Dictionary = dic.dictionary
                 let definitionArray = Dictionary[definitionTextField.text!]
-                
                 if var defArray = definitionArray{
                     defArray.append((definitionTextField.text!))
                     Dictionary.updateValue(defArray, forKey: wordTextField.text!)
@@ -56,6 +63,11 @@ class inputDefinitionViewController: UIViewController {
                     self.presentViewController(alert, animated: true, completion: nil)
                     
                 }
+                dic.dictionary = Dictionary
+                do{
+                    try context.save()
+                }
+                catch{}
             }
         }
     }
@@ -77,6 +89,7 @@ class inputDefinitionViewController: UIViewController {
     }
     
     func loadDictionary(){
+        
         
     }
     

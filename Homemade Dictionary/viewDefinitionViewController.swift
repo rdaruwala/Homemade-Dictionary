@@ -11,17 +11,32 @@ import CoreData
 
 class viewDefinitionViewController: UIViewController {
     
-    var Dictionary = [String:[String]]()
+    //var Dictionary = [String:[String]]()
     var wordRecieved:String!
 
     @IBOutlet weak var definitionDisplayBox: UITextView!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "backgroundimage.png")!)
         
         definitionDisplayBox.editable = false
-        let definitionArray:[String] = Dictionary[wordRecieved]!
+        
+        let appDel:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let context:NSManagedObjectContext = appDel.managedObjectContext
+        let ent = NSEntityDescription.entityForName("Info", inManagedObjectContext: context)
+        let dic = Info(entity: ent!, insertIntoManagedObjectContext: context)
+        var Dictionary = dic.dictionary
+        
+        let definitionArray:[String]! = Dictionary[wordRecieved]
+        
+        
+        var toReturn = ""
+        for value in definitionArray{
+            toReturn = toReturn + value + "\n"
+        }
+        
+        definitionDisplayBox.text = toReturn
     }
 
     override func didReceiveMemoryWarning() {

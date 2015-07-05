@@ -48,7 +48,15 @@ class ViewController: UIViewController {
     @IBAction func lookupSubmitAction(sender: AnyObject) {
         self.view.endEditing(true)
         if(lookupTextField.text != nil && lookupTextField.text != ""){
-        /*    let definitionArray = Dictionary[lookupTextField.text!]
+            
+            let appDel:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+            let context:NSManagedObjectContext = appDel.managedObjectContext
+            let ent = NSEntityDescription.entityForName("Info", inManagedObjectContext: context)
+            let dic = Info(entity: ent!, insertIntoManagedObjectContext: context)
+            
+            var Dictionary = dic.dictionary
+            
+            let definitionArray = Dictionary[lookupTextField.text!]
             if(definitionArray != nil){
                 self.performSegueWithIdentifier("define", sender: self)
             }
@@ -56,7 +64,7 @@ class ViewController: UIViewController {
                 let alert = UIAlertController(title: "Invalid Word", message: "The word you entered is not in the dictionary. Please enter a definition for this word first.", preferredStyle: UIAlertControllerStyle.Alert)
                 alert.addAction(UIAlertAction(title: "Continue", style: UIAlertActionStyle.Default, handler: nil))
                 self.presentViewController(alert, animated: true, completion: nil)
-            }*/
+            }
         }
         
     }

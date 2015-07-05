@@ -11,5 +11,5 @@ import CoreData
 
 class Info : NSManagedObject{
     
-    @NSManaged var Dictionary:[String:[String]]
+    @NSManaged var dictionary:[String:[String]]
 }
