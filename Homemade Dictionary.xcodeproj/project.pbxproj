@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C10A71721B4AD5AF00210856 /* removeDefinitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10A71711B4AD5AF00210856 /* removeDefinitionViewController.swift */; };
 		C1628F7E1B46F9DD0093052E /* inputDefinitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1628F7D1B46F9DD0093052E /* inputDefinitionViewController.swift */; };
 		C1628F801B46F9E40093052E /* viewDefinitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1628F7F1B46F9E40093052E /* viewDefinitionViewController.swift */; };
 		C1628F821B46FDA30093052E /* Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1628F811B46FDA30093052E /* Info.swift */; };
@@ -38,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C10A71711B4AD5AF00210856 /* removeDefinitionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = removeDefinitionViewController.swift; sourceTree = "<group>"; };
 		C1628F7D1B46F9DD0093052E /* inputDefinitionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = inputDefinitionViewController.swift; sourceTree = "<group>"; };
 		C1628F7F1B46F9E40093052E /* viewDefinitionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = viewDefinitionViewController.swift; sourceTree = "<group>"; };
 		C1628F811B46FDA30093052E /* Info.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Info.swift; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 				C1E9FC8A1B46F91F00751131 /* Info.plist */,
 				C1628F811B46FDA30093052E /* Info.swift */,
 				C1E9FC821B46F91F00751131 /* Homemade_Dictionary.xcdatamodeld */,
+				C10A71711B4AD5AF00210856 /* removeDefinitionViewController.swift */,
 			);
 			path = "Homemade Dictionary";
 			sourceTree = "<group>";
@@ -268,6 +271,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C1E9FC841B46F91F00751131 /* Homemade_Dictionary.xcdatamodeld in Sources */,
+				C10A71721B4AD5AF00210856 /* removeDefinitionViewController.swift in Sources */,
 				C1E9FC7E1B46F91F00751131 /* ViewController.swift in Sources */,
 				C1628F801B46F9E40093052E /* viewDefinitionViewController.swift in Sources */,
 				C1628F821B46FDA30093052E /* Info.swift in Sources */,

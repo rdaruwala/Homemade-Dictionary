@@ -15,6 +15,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var lookupTextField: UITextField!
     @IBOutlet weak var lookupSubmitButton: UIButton!
     @IBOutlet weak var newDefinitionSubmitButton: UIButton!
+    @IBOutlet weak var removeDefinitionButton: UIButton!
     
     
     let defaults = NSUserDefaults.standardUserDefaults()
@@ -32,6 +33,11 @@ class ViewController: UIViewController {
         lookupSubmitButton.layer.cornerRadius = 10
         lookupSubmitButton.layer.borderWidth = 3
         lookupSubmitButton.layer.borderColor = UIColor.redColor().CGColor
+        
+        removeDefinitionButton.backgroundColor = UIColor.clearColor()
+        removeDefinitionButton.layer.cornerRadius = 10
+        removeDefinitionButton.layer.borderWidth = 3
+        removeDefinitionButton.layer.borderColor = UIColor.redColor().CGColor
         
         newDefinitionSubmitButton.backgroundColor = UIColor.clearColor()
         newDefinitionSubmitButton.layer.cornerRadius = 10
@@ -78,6 +84,15 @@ class ViewController: UIViewController {
         }
         
     }
+    
+    /**
+    Performs segue when run
+    **/
+    @IBAction func deleteButtonAction(sender: AnyObject) {
+        self.view.endEditing(true)
+        self.performSegueWithIdentifier("remove", sender: self)
+    }
+    
     
     /**
     Performs segue when run

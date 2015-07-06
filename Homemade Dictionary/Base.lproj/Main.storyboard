@@ -5,6 +5,60 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
+        <!--Remove Definition View Controller-->
+        <scene sceneID="ED2-MG-OCv">
+            <objects>
+                <viewController id="auJ-7r-Ctv" customClass="removeDefinitionViewController" customModule="Homemade_Dictionary" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="p7E-hm-QKH"/>
+                        <viewControllerLayoutGuide type="bottom" id="QlL-Ro-lwN"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="MIK-2N-6Bo">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Insert word to remove" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mfq-NG-q6V">
+                                <rect key="frame" x="20" y="258" width="560" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Insert which definition to remove" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0iw-3v-hEF">
+                                <rect key="frame" x="20" y="311" width="560" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0df-m0-EgM">
+                                <rect key="frame" x="20" y="498" width="560" height="30"/>
+                                <state key="normal" title="Remove Definition">
+                                    <color key="titleColor" red="0.90183080810000005" green="0.052293471110000003" blue="0.1142513569" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="submitAction:" destination="auJ-7r-Ctv" eventType="touchUpInside" id="aOh-eU-ha5"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="0iw-3v-hEF" secondAttribute="trailing" id="6uH-xp-gPp"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="mfq-NG-q6V" secondAttribute="trailing" id="Flk-8N-LHo"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="mfq-NG-q6V" secondAttribute="leading" id="N4i-B9-5NT"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="0iw-3v-hEF" secondAttribute="leading" id="NBx-Mj-4c8"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="0df-m0-EgM" secondAttribute="leading" id="PK3-yl-hb9"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="0df-m0-EgM" secondAttribute="trailing" id="VNI-TU-TM9"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="0df-m0-EgM" secondAttribute="leading" id="hAb-SS-sYF"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="0df-m0-EgM" secondAttribute="trailing" id="jx5-G8-jke"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="definitionToRemoveBox" destination="0iw-3v-hEF" id="wQ2-qv-EGA"/>
+                        <outlet property="submitButton" destination="0df-m0-EgM" id="QS0-Iy-DUv"/>
+                        <outlet property="wordToRemoveBox" destination="mfq-NG-q6V" id="pNZ-xy-Ggf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VtT-8V-JcG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1003" y="-336"/>
+        </scene>
         <!--Homemade Dictionary-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -40,14 +94,25 @@
                                     <action selector="definitionSubmitAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="csP-Er-ngz"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tvl-i9-Ezn">
+                                <rect key="frame" x="20" y="530" width="560" height="30"/>
+                                <state key="normal" title="Remove a Definition">
+                                    <color key="titleColor" red="0.90183080810000005" green="0.052293471110000003" blue="0.1142513569" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="deleteButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kyY-uY-cdl"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="leadingMargin" secondItem="Wgh-dp-HwM" secondAttribute="leading" id="BSa-BC-yce"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="tvl-i9-Ezn" secondAttribute="leading" id="GDh-EE-7pA"/>
                             <constraint firstAttribute="leadingMargin" secondItem="JAi-a7-lvg" secondAttribute="leading" id="Gd1-G4-5hq"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Wgh-dp-HwM" secondAttribute="trailing" id="XU2-N3-9Cl"/>
                             <constraint firstAttribute="leadingMargin" secondItem="U0M-Vd-C7z" secondAttribute="leading" id="lIg-JC-Ct3"/>
                             <constraint firstAttribute="trailingMargin" secondItem="JAi-a7-lvg" secondAttribute="trailing" id="npB-5K-xmV"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="tvl-i9-Ezn" secondAttribute="trailing" id="v0q-qz-Roc"/>
                             <constraint firstAttribute="trailingMargin" secondItem="U0M-Vd-C7z" secondAttribute="trailing" id="yMz-wx-GOq"/>
                         </constraints>
                     </view>
@@ -56,8 +121,10 @@
                         <outlet property="lookupSubmitButton" destination="JAi-a7-lvg" id="3Jh-V5-DZc"/>
                         <outlet property="lookupTextField" destination="U0M-Vd-C7z" id="zV7-0g-64p"/>
                         <outlet property="newDefinitionSubmitButton" destination="Wgh-dp-HwM" id="aKu-HC-Fjv"/>
+                        <outlet property="removeDefinitionButton" destination="tvl-i9-Ezn" id="Pm6-1B-y01"/>
                         <segue destination="Vzy-l4-pqr" kind="show" identifier="define" id="s82-Mu-1QN"/>
                         <segue destination="i9W-G0-JYQ" kind="show" identifier="input" id="Qpf-Bd-zsX"/>
+                        <segue destination="auJ-7r-Ctv" kind="show" identifier="remove" id="nt4-Q3-7iD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -152,12 +219,6 @@
                                 <color key="textColor" red="0.11570151300640813" green="0.47926704187236358" blue="0.90183080810000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1me-uq-K5h">
-                                <rect key="frame" x="20" y="508" width="560" height="30"/>
-                                <state key="normal" title="Remove a Definition">
-                                    <color key="titleColor" red="0.90183080810000005" green="0.052293471110000003" blue="0.1142513569" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
