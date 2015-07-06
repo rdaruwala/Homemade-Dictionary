@@ -17,7 +17,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var newDefinitionSubmitButton: UIButton!
     
     
-    var Dictionary = [NSManagedObject]()
+    let defaults = NSUserDefaults.standardUserDefaults()
+    var Dictionary:[String:[String]]!
     
     
     override func viewDidLoad() {
@@ -49,14 +50,16 @@ class ViewController: UIViewController {
         self.view.endEditing(true)
         if(lookupTextField.text != nil && lookupTextField.text != ""){
             
-            let appDel:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+            /*let appDel:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
             let context:NSManagedObjectContext = appDel.managedObjectContext
             let ent = NSEntityDescription.entityForName("Info", inManagedObjectContext: context)
             let dic = Info(entity: ent!, insertIntoManagedObjectContext: context)
             
-            var Dictionary = dic.dictionary
+            var Dictionary = dic.dictionary*/
             
-            let definitionArray = Dictionary[lookupTextField.text!]
+            Dictionary = defaults.objectForKey("dictionary") as! [String:[String]]
+            
+            let definitionArray = Dictionary[lookupTextField.text!.lowercaseString]
             if(definitionArray != nil){
                 self.performSegueWithIdentifier("define", sender: self)
             }
@@ -78,7 +81,7 @@ class ViewController: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if(segue.identifier == "define"){
             let next = segue.destinationViewController as! viewDefinitionViewController
-            next.wordRecieved = lookupTextField.text
+            next.wordRecieved = lookupTextField.text?.lowercaseString
         }
     }
     

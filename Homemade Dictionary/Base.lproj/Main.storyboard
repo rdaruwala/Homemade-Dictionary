@@ -149,7 +149,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Word" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xgx-uS-uH2">
                                 <rect key="frame" x="20" y="83" width="560" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.11570151300640813" green="0.47926704187236358" blue="0.90183080810000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1me-uq-K5h">
@@ -170,6 +170,7 @@
                     <navigationItem key="navigationItem" title="View Definition" id="3bX-BT-fd9"/>
                     <connections>
                         <outlet property="definitionDisplayBox" destination="bNk-DT-tqg" id="5yR-ko-xPq"/>
+                        <outlet property="showWordBox" destination="xgx-uS-uH2" id="Det-OH-gmj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WSW-XB-l6w" userLabel="First Responder" sceneMemberID="firstResponder"/>

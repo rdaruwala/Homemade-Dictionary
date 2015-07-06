@@ -16,6 +16,10 @@ class inputDefinitionViewController: UIViewController {
     @IBOutlet weak var definitionTextField: UITextView!
     @IBOutlet weak var submitButton: UIButton!
     
+    let defaults = NSUserDefaults.standardUserDefaults()
+    
+    var Dictionary:[String:[String]]!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,21 +38,21 @@ class inputDefinitionViewController: UIViewController {
         submitButton.layer.borderColor = UIColor.redColor().CGColor
         
         
-        
     }
     
     @IBAction func submitButton(sender: AnyObject) {
         wordTextField.text = wordTextField.text?.lowercaseString
         if(definitionTextField.text != nil && definitionTextField.text != ""){
             if(wordTextField.text != nil && wordTextField.text != ""){
-                let appDel:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-                let context:NSManagedObjectContext = appDel.managedObjectContext
-                let ent = NSEntityDescription.entityForName("Info", inManagedObjectContext: context)
-                let dic = Info(entity: ent!, insertIntoManagedObjectContext: context)
-
-                var Dictionary = dic.dictionary
-                let definitionArray = Dictionary[definitionTextField.text!]
-                if var defArray = definitionArray{
+                
+                Dictionary = defaults.objectForKey("dictionary") as? [String:[String]]
+                
+                if(Dictionary == nil){
+                    Dictionary = [:]
+                }
+                //let definitionArray = Dictionary[definitionTextField.text!]
+                if let testArray = Dictionary[wordTextField.text!]{
+                    var defArray = testArray
                     defArray.append((definitionTextField.text!))
                     Dictionary.updateValue(defArray, forKey: wordTextField.text!)
                     let alert = UIAlertController(title: "Definition added", message: "Definition has been added for word: " + wordTextField.text!, preferredStyle: UIAlertControllerStyle.Alert)
@@ -63,11 +67,8 @@ class inputDefinitionViewController: UIViewController {
                     self.presentViewController(alert, animated: true, completion: nil)
                     
                 }
-                dic.dictionary = Dictionary
-                do{
-                    try context.save()
-                }
-                catch{}
+                defaults.setObject(Dictionary, forKey: "dictionary")
+                defaults.synchronize()
             }
         }
     }

@@ -11,10 +11,14 @@ import CoreData
 
 class viewDefinitionViewController: UIViewController {
     
-    //var Dictionary = [String:[String]]()
+    
+    let defaults = NSUserDefaults.standardUserDefaults()
+    var Dictionary:[String:[String]]!
     var wordRecieved:String!
+    
 
     @IBOutlet weak var definitionDisplayBox: UITextView!
+    @IBOutlet weak var showWordBox: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,18 +26,27 @@ class viewDefinitionViewController: UIViewController {
         
         definitionDisplayBox.editable = false
         
-        let appDel:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        /*let appDel:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let context:NSManagedObjectContext = appDel.managedObjectContext
         let ent = NSEntityDescription.entityForName("Info", inManagedObjectContext: context)
         let dic = Info(entity: ent!, insertIntoManagedObjectContext: context)
-        var Dictionary = dic.dictionary
+        var Dictionary = dic.dictionary*/
         
+        
+        Dictionary = defaults.objectForKey("dictionary") as! [String:[String]]
         let definitionArray:[String]! = Dictionary[wordRecieved]
+        showWordBox.text = wordRecieved!
         
         
         var toReturn = ""
-        for value in definitionArray{
-            toReturn = toReturn + value + "\n"
+        
+        for(var i = 0; i < definitionArray.count; i++){
+            if(i != definitionArray.count - 1){
+                toReturn = toReturn + String(i+1) + ") " + definitionArray[i] + "\n\n"
+            }
+            else{
+                toReturn = toReturn + String(i+1) + ") " + definitionArray[i]
+            }
         }
         
         definitionDisplayBox.text = toReturn
