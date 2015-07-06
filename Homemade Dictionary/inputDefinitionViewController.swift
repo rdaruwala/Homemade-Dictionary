@@ -20,7 +20,9 @@ class inputDefinitionViewController: UIViewController {
     
     var Dictionary:[String:[String]]!
     
-    
+    /**
+    Loads view controller. Sets background to an image, creates a border around the two buttons, and allows keyboard to move up and down when the keyboard is opened
+    **/
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -40,6 +42,9 @@ class inputDefinitionViewController: UIViewController {
         
     }
     
+    /**
+    Runs when the submit button is hit. If an entry exists for the input word, the definition is added. If no entry exists, one is created with the definition and inserted into the Dictionary
+    **/
     @IBAction func submitButton(sender: AnyObject) {
         wordTextField.text = wordTextField.text?.lowercaseString
         if(definitionTextField.text != nil && definitionTextField.text != ""){

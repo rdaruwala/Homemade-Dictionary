@@ -21,6 +21,9 @@ class ViewController: UIViewController {
     var Dictionary:[String:[String]]!
     
     
+    /**
+    Loads view controller. Sets background to an image, creates a border around the two buttons, and allows keyboard to move up and down when the keyboard is opened
+    **/
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "backgroundimage.png")!)
@@ -46,6 +49,10 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    /**
+    Function that takes a submitted word and checks if it is in the dictionary. If it is not, an alert is displayed. If it is, a segue is performed.
+    **/
     @IBAction func lookupSubmitAction(sender: AnyObject) {
         self.view.endEditing(true)
         if(lookupTextField.text != nil && lookupTextField.text != ""){
@@ -72,12 +79,17 @@ class ViewController: UIViewController {
         
     }
     
+    /**
+    Performs segue when run
+    **/
     @IBAction func definitionSubmitAction(sender: AnyObject) {
         self.view.endEditing(true)
         self.performSegueWithIdentifier("input", sender: self)
     }
     
-    
+    /**
+    Transfers the input word to the next segue
+    **/
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if(segue.identifier == "define"){
             let next = segue.destinationViewController as! viewDefinitionViewController

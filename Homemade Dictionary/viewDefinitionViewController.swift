@@ -20,6 +20,10 @@ class viewDefinitionViewController: UIViewController {
     @IBOutlet weak var definitionDisplayBox: UITextView!
     @IBOutlet weak var showWordBox: UILabel!
 
+    
+    /**
+    Displays the definition for a given word provided.
+    **/
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "backgroundimage.png")!)
